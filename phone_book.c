@@ -205,7 +205,7 @@ void add(char *name, char *phone) {
   fclose(fp);
 }
 
-int search(FILE *db_file) {
+int search(FILE *db_file, char *name) {
   entry *p = load_entries(db_file);
   entry *base = p;
   int found=0;
