@@ -141,7 +141,8 @@ void print_usage(char *message, char *progname) {
 }
 
 entry *
-create_entry_node(char *name, char *phone) {
+create_entry_node(char *name, char *phone)
+{
   entry *ret;
   ret = malloc(sizeof(entry));
   strcpy(ret->name, name);
@@ -207,6 +208,7 @@ void add(char *name, char *phone) {
 int search(FILE *db_file) {
   entry *p = load_entries(db_file);
   entry *base = p;
+  int found=0;
   while (p!=NULL) {
    if(strcmp(p->name,name) == 0){
   printf("%s\n",p->phone);
@@ -215,7 +217,6 @@ int search(FILE *db_file) {
   }
    p=p->next;
   }
-  /* TBD print total count */
   free_entries(base);
   return found;
 }
